@@ -101,7 +101,7 @@ contract DragonDistributions {
             
         }
         
-        if ( distributionThree[ msg.sender ] == false && now > clock + 405 day ){
+        if ( distributionThree[ msg.sender ] == false && now > clock + 405 days ){
             distributionThree[ msg.sender ] = true;
             total += 15000000000000;
             balanceOf[ msg.sender ] -= 15000000000000; 
