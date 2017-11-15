@@ -60,6 +60,7 @@ contract Dragon is ERC20 {
         appendTokenHolders( msg.sender );
         balanceOf[msg.sender] =  supply;
         totalSupply = supply; // 
+        burnerSet = false;
         
         decimals = 8; // Amount of decimals for display purposes
         owner = msg.sender;
