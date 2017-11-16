@@ -35,7 +35,7 @@ contract DragonDistributions {
     function DragonDistributions () {
         
         dragon = ; // Hard code Dragon address
-        prime = ; // prime Advisor Address
+        prime = 0x243098c1e16973c7e3e969c289c5b87808e359c1; // prime Advisor Address
         film = 0xdFCf69C8FeD25F5150Db719BAd4EfAb64F628d31;// filmmaker address
         
         northadvisor = 0x74Fc8fA4F99b6c19C250E4Fc6952051a95F6060D;
