@@ -70,7 +70,7 @@ contract DragonCrowdsale {
         beneficiary = msg.sender; //beneficiary is initially the contract deployer - change using transferBeneficiary method
         charity = msg.sender; //charity is initially the contract deployer - change using transferCharity method
         owner = msg.sender;// owner is initially the contract deployer
-        advisor = msg.sender; //change this address to advisor address using setAdvisor method
+        advisor = 0x243098c1e16973c7e3e969c289c5b87808e359c1; //advisor address
         
         advisorTotal = 1667 ether; //amount to be sent off to advisor contract
         
@@ -162,15 +162,7 @@ contract DragonCrowdsale {
         
     }
     
-    //only able to set once
-    function setAdvisor( address _advisor ) onlyOwner {
-        
-        if ( advisorset ) throw;
-        advisor = _advisor;
-        advisorset = true;
-        
-        
-    }
+    
 
     function preCrowdsale( Package package ){
         
