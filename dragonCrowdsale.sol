@@ -164,7 +164,7 @@ contract DragonCrowdsale {
     
     
 
-    function preCrowdsale( Package package ){
+    function preCrowdsale( Package package )internal{
         
          
         //Bronze Package Award
