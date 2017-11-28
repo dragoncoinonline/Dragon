@@ -99,6 +99,10 @@ contract DragonCrowdsale {
     }
 
     function () payable {
+      sale();
+    }
+
+    function sale () payable {
         
         require(!crowdSaleClosed);
         require(!crowdSalePause);
