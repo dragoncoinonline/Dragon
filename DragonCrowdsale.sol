@@ -1,4 +1,4 @@
-pragma solidity ^0.4.11;
+pragma solidity ^0.4.18;
 
 
 
@@ -27,7 +27,7 @@ contract DragonCrowdsale {
     
     modifier onlyOwner() {
         if (msg.sender != owner) {
-            throw;
+            revert();
         }
         _;
     }
