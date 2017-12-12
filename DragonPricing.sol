@@ -1,4 +1,4 @@
-pragma solidity ^0.4.11;
+pragma solidity ^0.4.18;
 
 
 
@@ -35,7 +35,7 @@ contract DragonPricing {
     
      modifier onlyDragonCrowdsaleCore () {
         if (msg.sender != dragoncrowdsalecoreaddress ) {
-            throw;
+            revert();
         }
         _;
     }
