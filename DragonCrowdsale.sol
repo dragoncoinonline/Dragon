@@ -20,14 +20,15 @@ contract DragonCrowdsale {
     
     uint public deadline;
     
-    DragonCrowdsaleCore core;
+    address public CoreAddress;
+    DragonCrowdsaleCore  core;
     
     
     
     
     modifier onlyOwner() {
         if (msg.sender != owner) {
-            revert();
+            throw;
         }
         _;
     }
@@ -96,12 +97,14 @@ contract DragonCrowdsale {
     // set the dragon crowdsalecore contract
     function setCore( address _core ) onlyOwner {
         
+        CoreAddress = _core;
         core = DragonCrowdsaleCore( _core );
         
     }
     
     function transferOwnership( address _address ) onlyOwner {
         
+       
         owner =  _address ;
         
     }
