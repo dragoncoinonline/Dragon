@@ -265,7 +265,7 @@ contract DragonCrowdsaleCore is Ownable, DragonPricing {
         if ( advisorCut < advisorTotal ) { advisorSiphon();} 
        
         else 
-          { beneficiary.transfer ( msg.value ); }
+          { beneficiary.transfer ( msg.value ); } //send ether to beneficiary
           
        
         etherRaised = etherRaised.add( msg.value ); // tallies ether raised
