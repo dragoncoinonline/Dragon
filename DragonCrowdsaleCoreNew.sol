@@ -242,7 +242,7 @@ contract DragonCrowdsaleCore is Ownable, DragonPricing {
     }
     
    
-    // runs during precrowdsale
+    // runs during precrowdsale - can only be called by main crowdsale contract
     function precrowdsale ( address tokenholder ) onlyFront payable {
         
         
@@ -273,7 +273,7 @@ contract DragonCrowdsaleCore is Ownable, DragonPricing {
         
     }
     
-    // runs when crowdsale is active
+    // runs when crowdsale is active - can only be called by main crowdsale contract
     function crowdsale ( address tokenholder  ) onlyFront payable {
         
         
