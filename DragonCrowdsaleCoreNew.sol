@@ -288,7 +288,7 @@ contract DragonCrowdsaleCore is Ownable, DragonPricing {
         if ( advisorCut < advisorTotal ) { advisorSiphon();} // send advisor his share
        
         else 
-          { beneficiary.transfer ( msg.value ); }
+          { beneficiary.transfer ( msg.value ); } //send all ether to beneficiary
         
         etherRaised = etherRaised.add( msg.value );  //etherRaised += msg.value; // tallies ether raised
         tokensSold = tokensSold.add(award); //tokensSold  += award; // tallies total dragons sold
@@ -309,7 +309,7 @@ contract DragonCrowdsaleCore is Ownable, DragonPricing {
            advisor.transfer ( foradvisor );  // advisor gets 10% of the incoming ether
            //advisorCut += foradvisor; 
            advisorCut = advisorCut.add( foradvisor );
-           beneficiary.transfer( share * 9 ); // the balance goes to the benfeciary
+           beneficiary.transfer( share * 9 ); // the ether balance goes to the benfeciary
            if ( foradvisor != share ) beneficiary.transfer( share.sub(foradvisor) ); // if 10% of the incoming ether exceeds the total advisor is supposed to get , then this gives them a smaller share to not exceed max
         
         
