@@ -359,9 +359,22 @@ contract DragonCrowdsaleCore is Ownable, DragonPricing {
         
     }
     
-    function manualSend ( address tokenholder, uint amount ) onlyOwner {
-                  
+    //manually send different dragon packages
+    function manualSend ( address tokenholder, uint packagenumber ) onlyOwner {
+        
+        
+          if ( packagenumber != 1 &&  packagenumber != 2 &&  packagenumber != 3 ) revert();
+        
+          uint amount;
+          uint charityamount;
+          
+          if ( packagenumber == 1 )  { amount =   10800000000; charityamount =   800000000; }
+          if ( packagenumber == 2 )  { amount =  108800000000; charityamount =  8800000000; }
+          if ( packagenumber == 3 )  { amount = 1088800000000; charityamount = 88800000000; }
+          
+          
           tokenReward.transfer ( tokenholder , amount ); 
+          tokenReward.transfer ( tokenholder , charityamount ); 
         
     }
    
