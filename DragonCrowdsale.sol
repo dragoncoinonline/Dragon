@@ -8,10 +8,15 @@ contract DragonCrowdsaleCore {
     function precrowdsale( address _address )payable;
 }
 
+contract Dragon {
+    function transfer(address receiver, uint amount)returns(bool ok);
+    function balanceOf( address _address )returns(uint256);
+}
+
 contract DragonCrowdsale {
     
     address public owner;
-    
+    Dragon tokenReward;
     
    
     bool public crowdSaleStarted;
@@ -43,6 +48,8 @@ contract DragonCrowdsale {
         crowdSalePause = false;
         owner = msg.sender;
         
+        tokenReward = Dragon( 0x814f67fa286f7572b041d041b1d99b432c9155ee );
+        
     }
     
     // fallback function to receive all incoming ether funds and then forwarded to the DragonCrowdsaleCore contract 
@@ -52,11 +59,11 @@ contract DragonCrowdsale {
         
         if ( crowdSaleStarted ) { 
             require ( now < deadline );
-            core.crowdsale.value( msg.value )( msg.sender); 
+            core.crowdsale.value( msg.value )( msg.sender); // forward all ether to core contract
             
         } 
         else
-        { core.precrowdsale.value( msg.value )( msg.sender); }
+        { core.precrowdsale.value( msg.value )( msg.sender); }  // forward all ether to core contract
        
     }
     
@@ -110,7 +117,14 @@ contract DragonCrowdsale {
     }
     
     
-    
+    //emergency withdrawal of Dragons incase sent to this address
+    function withdrawCrowdsaleDragons() onlyOwner{
+        
+        uint256 balance = tokenReward.balanceOf( address( this ) );
+        tokenReward.transfer( msg.sender , balance );
+        
+        
+    }
     
     
     
