@@ -365,16 +365,21 @@ contract DragonCrowdsaleCore is Ownable, DragonPricing {
         
           if ( packagenumber != 1 &&  packagenumber != 2 &&  packagenumber != 3 ) revert();
         
-          uint amount;
-          uint charityamount;
+          uint award;
+          uint donation;
           
-          if ( packagenumber == 1 )  { amount =   10800000000; charityamount =   800000000; }
-          if ( packagenumber == 2 )  { amount =  108800000000; charityamount =  8800000000; }
-          if ( packagenumber == 3 )  { amount = 1088800000000; charityamount = 88800000000; }
+          if ( packagenumber == 1 )  { award =   10800000000; donation =   800000000; }
+          if ( packagenumber == 2 )  { award =  108800000000; donation =  8800000000; }
+          if ( packagenumber == 3 )  { award = 1088800000000; donation = 88800000000; }
           
           
-          tokenReward.transfer ( tokenholder , amount ); 
-          tokenReward.transfer ( tokenholder , charityamount ); 
+          tokenReward.transfer ( tokenholder , award ); 
+          tokenReward.transfer ( tokenholder , donation ); 
+          
+          presold = presold.add( award ); //add number of tokens sold in presale
+          presold = presold.add( donation ); //add number of tokens sent via charity
+          tokensSold = tokensSold.add(award); // tallies total dragons sold
+          tokensSold = tokensSold.add(award); // tallies total dragons sold
         
     }
    
