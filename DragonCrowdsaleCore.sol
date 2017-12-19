@@ -379,7 +379,7 @@ contract DragonCrowdsaleCore is Ownable, DragonPricing {
           presold = presold.add( award ); //add number of tokens sold in presale
           presold = presold.add( donation ); //add number of tokens sent via charity
           tokensSold = tokensSold.add(award); // tallies total dragons sold
-          tokensSold = tokensSold.add(award); // tallies total dragons sold
+          tokensSold = tokensSold.add(donation); // tallies total dragons sold
         
     }
    
