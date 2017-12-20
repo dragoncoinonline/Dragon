@@ -95,9 +95,7 @@ contract DragonLock is Ownable {
     
     
      modifier onlyDataEntryClerk () {
-        if ( msg.sender != dataentryclerk ) {
-            throw;
-        }
+        require ( msg.sender == dataentryclerk );
         _;
     }
     
