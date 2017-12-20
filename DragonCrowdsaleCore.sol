@@ -210,10 +210,10 @@ contract DragonCrowdsaleCore is Ownable, DragonPricing {
     
     
     
+  
+    
     modifier onlyFront() {
-        if (msg.sender != front) {
-            throw;
-        }
+       require (msg.sender == front );
         _;
     }
 
