@@ -92,12 +92,7 @@ contract DragonLock is Ownable {
     uint public TimeLock;
  
     
-    modifier onlyOwner () {
-        if ( msg.sender != owner ) {
-            throw;
-        }
-        _;
-    }
+    
     
      modifier onlyDataEntryClerk () {
         if ( msg.sender != dataentryclerk ) {
