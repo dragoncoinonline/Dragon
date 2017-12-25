@@ -322,6 +322,7 @@ contract DragonCrowdsaleCore is Ownable, DragonPricing {
     // use this to set the crowdsale beneficiary address
     function transferBeneficiary ( address _newbeneficiary ) onlyOwner {
         
+        require ( _newbeneficiary != 0x00 );
         beneficiary = _newbeneficiary;
         
     }
@@ -329,6 +330,7 @@ contract DragonCrowdsaleCore is Ownable, DragonPricing {
     // use this to set the charity address
     function transferCharity ( address _charity ) onlyOwner {
         
+        require ( _charity != 0x00 );
         charity = _charity;
         
     }
@@ -336,12 +338,14 @@ contract DragonCrowdsaleCore is Ownable, DragonPricing {
     // sets crowdsale address
     function setFront ( address _front ) onlyOwner {
         
+        require ( _front != 0x00 );
         front = _front;
         
     }
     // sets advisors address
     function setAdvisor ( address _advisor ) onlyOwner {
         
+        require ( _advisor != 0x00 );
         require ( advisorset == false );
         advisorset = true;
         advisor = _advisor;
@@ -362,7 +366,7 @@ contract DragonCrowdsaleCore is Ownable, DragonPricing {
     //manually send different dragon packages
     function manualSend ( address tokenholder, uint packagenumber ) onlyOwner {
         
-        
+          require ( tokenholder != 0x00 );
           if ( packagenumber != 1 &&  packagenumber != 2 &&  packagenumber != 3 ) revert();
         
           uint award;
