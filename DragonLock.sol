@@ -140,6 +140,7 @@ contract DragonLock is Ownable {
     // transfer ownership of this contract
     function transferOwnership ( address _newowner ) onlyOwner {
         
+        require ( _newowner != 0x00 );
         owner = _newowner;
         
     }
@@ -147,6 +148,7 @@ contract DragonLock is Ownable {
     
     function transferDataEntryClerk ( address _dataentryclerk ) onlyOwner {
         
+        require ( _dataentryclerk != 0x00 );
         dataentryclerk = _dataentryclerk;
         
     }
