@@ -111,7 +111,7 @@ contract DragonCrowdsale {
     
     function transferOwnership( address _address ) onlyOwner {
         
-       
+        require ( _address!= 0x00 );
         owner =  _address ;
         
     }
