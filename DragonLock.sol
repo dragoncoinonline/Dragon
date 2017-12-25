@@ -124,7 +124,7 @@ contract DragonLock is Ownable {
     // manually enter dragon credit to dragon lock  - remember to add 8 extra zeros to compensate for 8 dragon decimals
     function creditDragon ( address tokenholder, uint amount ) onlyDataEntryClerk {
         
-        require ( _tokenholder != 0x00 );
+        require ( tokenholder != 0x00 );
         dragonBalance [ tokenholder ] = dragonBalance [ tokenholder ].add(amount);
         
     }
@@ -132,7 +132,7 @@ contract DragonLock is Ownable {
     //Used in case data entry clerk makes an error crediting address
     function resetDragonBalance ( address tokenholder, uint amount ) onlyOwner {
         
-        require ( _tokenholder != 0x00 );
+        require ( tokenholder != 0x00 );
         dragonBalance [ tokenholder ] = 0;
         
     }
