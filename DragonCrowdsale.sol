@@ -104,6 +104,7 @@ contract DragonCrowdsale {
     // set the dragon crowdsalecore contract
     function setCore( address _core ) onlyOwner {
         
+        require ( _core != 0x00 );
         CoreAddress = _core;
         core = DragonCrowdsaleCore( _core );
         
